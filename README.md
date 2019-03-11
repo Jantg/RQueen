@@ -42,10 +42,9 @@ As we can see, the smoothed estimate and intervals of the coefficient of the dyn
 
 The overview of the  missing value imputation is as follows: we first impute index series univariately by running TVAR within each iteration of gibbs sampling and then proceeds to impute sales series with yet another gibbs sampling, this time running Dynamic regression using imputed index series within each iteration.
 
-The pseudo code of this procedure is given below:
+The pseudo code of this procedure is given below.
 	
 ![](imp_index.png)
-
 ![](imp_sales.png)
 
 where FFBS stands for forward filtering backward sampling and deletino & imputation is basically sampling using conditional normal structure as detailed in Harrison and Veerapen (1993).
