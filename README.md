@@ -1,9 +1,3 @@
----
-header-includes:
-  - \usepackage{algorithm}
-  - \usepackage[noend]{algpseudocode}
----
-
 # missing_val_imputation
 
 My original codes from STA642 final project and the final report
@@ -50,23 +44,8 @@ The overview of the  missing value imputation is as follows: we first impute ind
 
 The pseudo code of this procedure is given below.
 	
-\begin{algorithm}
-\begin{algorithmic}
-\caption{Response imputation \& Parameter estimation}      
-  \label{alg1}
-\Procedure{Gibbs for Response $Y\equiv\{Y^{\text{obs}},Y^{\text{miss}}\}$ and Params}{}
-\State Run Algorithm 1 and obatain \underset{$(T\times S)$}{$X_s$}
-\State Set prior,discount and model params $\psi$
-\State Initialize $Y^{\text{miss}}_0$
-\For{$s = 1: $ S }
-\State $Y^{\text{obs}}\sim Y_{s-1}^{\text{miss}},X_s,\psi$ \Comment{by FFBS of Dynamic Regression}
-\State $Y_s^{\text{miss}}\sim Y^{\text{obs}},X_s,\psi$\Comment{by deletion \& imputation}
-\EndFor
-\Return{} $Y_s \equiv\{Y^{\text{obs}},Y_s^{\text{miss}}\}\forall s\in S$ \text{\& Posterior of Coefficients etc.}
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+![](index_imp.png)
 
-![](imp_sales.png)
+![](sales_imp.png)
 
 where FFBS stands for forward filtering backward sampling and deletino & imputation is basically sampling using conditional normal structure as detailed in Harrison and Veerapen (1993).
